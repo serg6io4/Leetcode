@@ -1,4 +1,4 @@
-package resueltos;
+
 
 class Solution {
 
