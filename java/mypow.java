@@ -18,8 +18,8 @@ public class mypow {
         return resultado;
     }
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         mypow p = new mypow();
-        System.out.println(p.myPow(2, -2));
+        System.out.println(p.myPow(3, 5));
     }
 }
