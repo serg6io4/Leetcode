@@ -13,32 +13,39 @@ public class rotateList {
         if (head == null || head.next == null || k == 0) {
             return head;
         }
+    
+        // 1. Determine the size of the list
         int size = 0;
         ListNode current = head;
-        while(current != null){
+        while (current != null) {
             size++;
             current = current.next;
         }
-        //Movimientos totales
+    
+        // 2. Compute the effective number of rotations
         k = k % size;
-        if(k == 0){
-            return head;
+        if (k == 0) {
+            return head; // No need to rotate
         }
-
+    
+        // 3. Find the last node
         ListNode tail = head;
-        for(int i= 0; i < size; i++){
+        for (int i = 0; i < size - 1; i++) { // Stop at the last node
             tail = tail.next;
         }
-        tail.next = head; //Conecto el final con el principio
-
+        tail.next = head; // Connect the last node to the head
+    
+        // 4. Find the new head (size - k - 1 from the start)
         ListNode newHead = head;
         for (int i = 0; i < size - k - 1; i++) {
-            newHead = newHead.next; // Avanza hasta la nueva cabeza
+            newHead = newHead.next; // Move to the new head
         }
-
-        // 6. Cortar la conexión y devolver la nueva cabeza
+    
+        // 5. Break the circular list
         ListNode rotatedHead = newHead.next;
-        newHead.next = null; // Termina la lista en el nuevo tail
+        newHead.next = null; // Cut the connection
+    
         return rotatedHead;
     }
+    
 }
