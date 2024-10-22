@@ -25,5 +25,4 @@ class Solution(object):
             current.next = prev.next
             prev.next = current
             current = temp
-        
-            current = current.next
+        return dummy.next
